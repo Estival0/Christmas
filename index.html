@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Tree</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #002b36;
+            overflow: hidden;
+        }
+
+        audio {
+            display: none; /* Hide the audio controls */
+        }
+
+        .tree {
+            position: relative;
+            width: 0;
+            height: 0;
+        }
+
+        .tree .triangle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-style: solid;
+            border-width: 0 50px 75px 50px;
+            border-color: transparent transparent #0a7d0a transparent;
+        }
+
+        .tree .triangle:nth-child(2) {
+            top: 40px;
+            border-width: 0 60px 90px 60px;
+        }
+
+        .tree .triangle:nth-child(3) {
+            top: 100px;
+            border-width: 0 70px 110px 70px;
+        }
+
+        .tree .star {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: gold;
+            font-size: 40px;
+        }
+
+        .tree .bell {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: gold;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .tree .bell:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .tree .bell-left-1 {
+            top: 70px;
+            left: calc(50% - 55px);
+        }
+
+        .tree .bell-right-1 {
+            top: 70px;
+            left: calc(50% + 35px);
+        }
+
+        .tree .bell-left-2 {
+            top: 130px;
+            left: calc(50% - 65px);
+        }
+
+        .tree .bell-right-2 {
+            top: 130px;
+            left: calc(50% + 45px);
+        }
+
+        .tree .bell-left-3 {
+            top: 190px;
+            left: calc(50% - 75px);
+        }
+
+        .tree .bell-right-3 {
+            top: 190px;
+            left: calc(50% + 55px);
+        }
+
+        .tree .trunk {
+            position: absolute;
+            top: 210px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 80px;
+            background-color: #5a3a1d;
+        }
+
+        .merry-christmas {
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Pacifico', cursive;
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .merry-christmas span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .merry-christmas span:nth-child(1) { animation-delay: 0.1s; }
+        .merry-christmas span:nth-child(2) { animation-delay: 0.2s; }
+        .merry-christmas span:nth-child(3) { animation-delay: 0.3s; }
+        .merry-christmas span:nth-child(4) { animation-delay: 0.4s; }
+        .merry-christmas span:nth-child(5) { animation-delay: 0.5s; }
+        .merry-christmas span:nth-child(6) { animation-delay: 0.6s; }
+        .merry-christmas span:nth-child(7) { animation-delay: 0.7s; }
+        .merry-christmas span:nth-child(8) { animation-delay: 0.8s; }
+        .merry-christmas span:nth-child(9) { animation-delay: 0.9s; }
+        .merry-christmas span:nth-child(10) { animation-delay: 1.0s; }
+        .merry-christmas span:nth-child(11) { animation-delay: 1.1s; }
+        .merry-christmas span:nth-child(12) { animation-delay: 1.2s; }
+        .merry-christmas span:nth-child(13) { animation-delay: 1.3s; }
+        .merry-christmas span:nth-child(14) { animation-delay: 1.4s; }
+        .merry-christmas span:nth-child(15) { animation-delay: 1.5s; }
+        .merry-christmas span:nth-child(16) { animation-delay: 1.6s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="merry-christmas.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Ensure music plays only after user interaction
+        document.body.addEventListener('click', function() {
+            const audio = document.getElementById('background-music');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
+    <div class="tree">
+        <div class="star">★</div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="bell bell-left-1"></div>
+        <div class="bell bell-right-1"></div>
+        <div class="bell bell-left-2"></div>
+        <div class="bell bell-right-2"></div>
+        <div class="bell bell-left-3"></div>
+        <div class="bell bell-right-3"></div>
+        <div class="trunk"></div>
+    </div>
+    <div class="merry-christmas">
+        <span>M</span><span>e</span><span>r</span><span>r</span><span>y</span>
+        <br>
+        <span>C</span><span>h</span><span>r</span><span>i</span><span>s</span>
+        <span>t</span><span>m</span><span>a</span><span>s</span><span>!</span>
+    </div>
+</body>
+</html>
